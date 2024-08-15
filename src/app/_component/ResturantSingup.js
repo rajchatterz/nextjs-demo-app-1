@@ -11,10 +11,18 @@ const UserSignup = () => {
   const handleEmailChange = (e) => setEmail(e.target.value);
   const handlePasswordChange = (e) => setPassword(e.target.value);
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", { name, email, password });
-    // Here you can add logic to send the data to the backend or display a success message
+    let result = await fetch("http://localhost:3000/api/product", {
+      method: "POST", // Corrected: method should be a string
+      headers: {
+        "Content-Type": "application/json", // Added: specify that the body is JSON
+      },
+      body: JSON.stringify({ name, email, password }), // Convert the object to a JSON string
+    });
+    result = await result.json();
+    console.log(result);
+    // Here you can add logic to handle the response or display a success message
   };
 
   return (
