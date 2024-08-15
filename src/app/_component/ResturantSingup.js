@@ -1,25 +1,19 @@
-"use client"; // This directive is necessary for using state and event handlers in Next.js 13+ (App Router)
+"use client"; // Necessary for using state and event handlers in Next.js 13+ (App Router)
 
 import React, { useState } from "react";
 
 const UserSignup = () => {
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    password: "",
-  });
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
+  const handleNameChange = (e) => setName(e.target.value);
+  const handleEmailChange = (e) => setEmail(e.target.value);
+  const handlePasswordChange = (e) => setPassword(e.target.value);
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Form Data Submitted:", formData);
+    console.log("Form Data Submitted:", { name, email, password });
     // Here you can add logic to send the data to the backend or display a success message
   };
 
@@ -34,27 +28,24 @@ const UserSignup = () => {
         </h2>
         <input
           type="text"
-          name="name"
-          value={formData.name}
-          onChange={handleChange}
+          value={name}
+          onChange={handleNameChange}
           placeholder="Your Name"
           className="border border-gray-300 p-3 mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
         <input
           type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
+          value={email}
+          onChange={handleEmailChange}
           placeholder="Email"
           className="border border-gray-300 p-3 mb-4 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
         />
         <input
           type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
+          value={password}
+          onChange={handlePasswordChange}
           placeholder="Password"
           className="border border-gray-300 p-3 mb-6 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
           required
