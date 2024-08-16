@@ -13,7 +13,7 @@ const UserSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let result = await fetch("src/app/api/product", {
+    let result = await fetch("api/product", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
