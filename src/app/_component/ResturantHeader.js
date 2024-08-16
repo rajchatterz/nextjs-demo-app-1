@@ -8,7 +8,7 @@ const RestaurantHeader = () => {
       <div className="container mx-auto flex items-center justify-between py-4 px-6">
         {/* Logo */}
         <div className="flex items-center">
-          <h1>Heyyyyy</h1>
+          <h1>RAjy</h1>
           <h1 className="text-2xl font-bold text-gray-800 ml-4">
             My Restaurant
           </h1>

@@ -13,16 +13,16 @@ const UserSignup = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    let result = await fetch("http://localhost:3000/api/product", {
-      method: "POST", // Corrected: method should be a string
+    let result = await fetch("/api/product", {
+      method: "POST",
       headers: {
-        "Content-Type": "application/json", // Added: specify that the body is JSON
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify({ name, email, password }), // Convert the object to a JSON string
+      body: JSON.stringify({ name, email, password }),
     });
     result = await result.json();
     console.log(result);
-    // Here you can add logic to handle the response or display a success message
+    // Handle the response or display a success message
   };
 
   return (
