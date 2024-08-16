@@ -44,6 +44,7 @@ export async function GET() {
 export async function POST(request) {
   try {
     await mongoose.connect(connectionStr);
+    console.log("connected successfully");
     const body = await request.json();
     const newResturant = new resturantSchema(body);
     await newResturant.save();
