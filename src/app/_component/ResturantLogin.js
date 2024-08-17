@@ -2,6 +2,11 @@
 import React from "react";
 
 const ResturantLogin = () => {
+  const handleSubmit = async () => {
+    const data = await fetch("/api/user");
+    const response = await data.json();
+    console.log(response);
+  };
   return (
     <form className="flex flex-col mb-4">
       <input
@@ -17,6 +22,7 @@ const ResturantLogin = () => {
         required
       />
       <button
+        onClick={() => handleSubmit()}
         type="submit"
         className="bg-blue-600 text-white p-2 rounded hover:bg-blue-700 transition duration-200"
       >
